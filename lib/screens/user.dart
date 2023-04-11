@@ -136,7 +136,9 @@ class _UserScreenState extends State<UserScreen> {
                   color: color,
                   title: 'Logout',
                   icon: IconlyLight.logout,
-                  onPressed: () {},
+                  onPressed: () {
+                    _showLogOutDialog();
+                  },
                 ),
               ],
             ),
@@ -144,6 +146,56 @@ class _UserScreenState extends State<UserScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _showLogOutDialog() async {
+    await showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Row(
+              children: [
+                Image.asset(
+                  'assets/images/warning-sign.png',
+                  height: 20,
+                  width: 20,
+                  fit: BoxFit.fill,
+                ),
+                const SizedBox(
+                  width: 8,
+                ),
+                const Text(
+                  'Log Out',
+                ),
+              ],
+            ),
+            content: const Text(
+              'Do You Want LogOut?',
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  if (Navigator.canPop(context)) {
+                    Navigator.pop(context);
+                  }
+                },
+                child: TextWidget(
+                  textColor: Colors.cyan,
+                  textSize: 18,
+                  textTitle: 'Cancel',
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: TextWidget(
+                  textColor: Colors.red,
+                  textSize: 18,
+                  textTitle: 'Ok',
+                ),
+              ),
+            ],
+          );
+        });
   }
 
   Future<void> _showAddressDialog() async {
