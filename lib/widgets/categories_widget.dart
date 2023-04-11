@@ -4,7 +4,13 @@ import 'package:provider/provider.dart';
 import '../provider/dark_theme_provider.dart';
 
 class CategoriesWidget extends StatelessWidget {
-  const CategoriesWidget({super.key});
+  const CategoriesWidget(
+      {super.key,
+      required this.catText,
+      required this.imgPath,
+      required this.passedColor});
+  final String catText, imgPath;
+  final Color passedColor;
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +22,14 @@ class CategoriesWidget extends StatelessWidget {
       onTap: () {},
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.red.withOpacity(
+          color: passedColor.withOpacity(
             0.1,
           ),
           borderRadius: BorderRadius.circular(
             16,
           ),
           border: Border.all(
-            color: Colors.red.withOpacity(
+            color: passedColor.withOpacity(
               0.7,
             ),
             width: 2,
@@ -34,10 +40,10 @@ class CategoriesWidget extends StatelessWidget {
             Container(
               height: screenWidth * 0.3,
               width: screenWidth * 0.3,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/images/cat/veg.png',
+                    imgPath,
                   ),
                   fit: BoxFit.fill,
                 ),
@@ -46,7 +52,7 @@ class CategoriesWidget extends StatelessWidget {
 
             // Category name
             TextWidget(
-              textTitle: 'Category name',
+              textTitle: catText,
               textColor: color,
               textSize: 20,
               isTitle: true,
