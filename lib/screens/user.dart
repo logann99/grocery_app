@@ -56,7 +56,7 @@ class _UserScreenState extends State<UserScreen> {
                         ),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            print('My name is pressed');
+                            // print('My name is pressed');
                           },
                       ),
                     ],
