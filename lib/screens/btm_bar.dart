@@ -34,11 +34,11 @@ class _ButtonBarScreenState extends State<ButtonBarScreen> {
     final themeState = Provider.of<DarkThemeProvider>(context);
     bool isDark = themeState.getDarkTheme;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          _pages[_selectedIndex]['title'],
-        ),
-      ),
+      // appBar: AppBar(
+      //   title: Text(
+      //     _pages[_selectedIndex]['title'],
+      //   ),
+      // ),
       body: _pages[_selectedIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: isDark ? Theme.of(context).cardColor : Colors.white,
