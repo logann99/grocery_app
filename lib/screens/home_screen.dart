@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:grocery_app/widgets/text_widget.dart';
 
 import '../provider/utils.dart';
 import '../widgets/on_sale_widget.dart';
@@ -45,7 +46,29 @@ class _HomeScreenState extends State<HomeScreen> {
               // control: const SwiperControl(color: Colors.black),
             ),
           ),
-          const OnSaleWidget(),
+          const SizedBox(
+            height: 6,
+          ),
+          TextButton(
+            onPressed: () {},
+            child: TextWidget(
+              textTitle: 'View All',
+              textColor: Colors.blue,
+              textSize: 20,
+            ),
+          ),
+          const SizedBox(
+            height: 6,
+          ),
+          SizedBox(
+            height: size.height * 0.24,
+            child: ListView.builder(
+                itemCount: 10,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return const OnSaleWidget();
+                }),
+          )
         ],
       ),
     );
