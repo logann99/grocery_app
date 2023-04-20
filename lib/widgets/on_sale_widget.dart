@@ -77,7 +77,12 @@ class _OnSaleWidgetState extends State<OnSaleWidget> {
                     ),
                   ],
                 ),
-                const PriceWidget(),
+                const PriceWidget(
+                  isOnSale: true,
+                  price: 5.9,
+                  salePrice: 2.99,
+                  textPrice: '1',
+                ),
                 const SizedBox(height: 5),
                 TextWidget(
                   textTitle: 'Product title',

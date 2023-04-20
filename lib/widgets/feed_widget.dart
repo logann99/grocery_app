@@ -76,7 +76,15 @@ class _FeedsWidgetState extends State<FeedsWidget> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const PriceWidget(),
+                    Flexible(
+                      flex:2,
+                      child: PriceWidget(
+                        isOnSale: true,
+                        price: 5.9,
+                        salePrice: 2.99,
+                        textPrice: _quantityTextController.text,
+                      ),
+                    ),
                     const SizedBox(
                       width: 8,
                     ),
@@ -95,6 +103,7 @@ class _FeedsWidgetState extends State<FeedsWidget> {
                             width: 5,
                           ),
                           Flexible(
+                            flex:2,
                             child: TextFormField(
                               controller: _quantityTextController,
                               key: const ValueKey('10 \$'),
@@ -116,12 +125,12 @@ class _FeedsWidgetState extends State<FeedsWidget> {
                               ],
                               onChanged: (value) {
                                 setState(() {
-                                  if (value.isEmpty) {
-                                    _quantityTextController.text = '1';
-                                  } else {
-                                    // total = usedPrice *
-                                    //     int.parse(_quantityTextController.text);
-                                  }
+                                  // if (value.isEmpty) {
+                                  //   _quantityTextController.text = '1';
+                                  // } else {
+                                  //   // total = usedPrice *
+                                  //   //     int.parse(_quantityTextController.text);
+                                  // }
                                 });
                               },
                             ),
