@@ -2,6 +2,7 @@ import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:grocery_app/provider/utils.dart';
+import 'package:grocery_app/widgets/heart_btn.dart';
 import 'package:grocery_app/widgets/price_widget.dart';
 import 'package:grocery_app/widgets/text_widget.dart';
 
@@ -44,8 +45,8 @@ class _OnSaleWidgetState extends State<OnSaleWidget> {
                   children: [
                     FancyShimmerImage(
                       imageUrl: 'https://i.ibb.co/F0s3FHQ/Apricots.png',
-                      height: size.width * 0.22,
-                      width: size.width * 0.22,
+                      height: size.width * 0.21,
+                      width: size.width * 0.2,
                       boxFit: BoxFit.fill,
                     ),
                     Column(
@@ -69,18 +70,9 @@ class _OnSaleWidgetState extends State<OnSaleWidget> {
                                 color: color,
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                print('print heart button is pressed');
-                              },
-                              child: Icon(
-                                IconlyLight.heart,
-                                size: 22,
-                                color: color,
-                              ),
-                            ),
+                            const HeartBTN(),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ],
